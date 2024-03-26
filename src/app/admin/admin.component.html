@@ -1,0 +1,27 @@
+<h2>liste des employes</h2>
+<a href="" routerLink="/ajoutEmploye"><button class="btn btn-success mb-3" >Ajouter un employé</button></a>
+<div class="table-responsives-md">
+
+    <table class="table table-striped ">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Matricule</th>
+          <th scope="col">Nom</th>
+          <th scope="col">Prenom</th>
+          <th scope="col">Email</th>
+          <th scope="col">GSM</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let employe of employes ; let i = index">
+            <th scope="row">{{i+1}}</th>
+            <td>{{employe.matricule}}</td>
+            <td>{{employe.nom}}</td>
+            <td>{{employe.pnom}}</td>
+            <td>{{employe.email}}</td>
+            <td>{{employe.gsm}}</td>
+        
+        </tr>
+      </tbody>
+

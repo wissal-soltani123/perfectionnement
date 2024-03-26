@@ -1,0 +1,43 @@
+
+<div class="container mt-5">
+    <h2>Demande de Congé</h2>
+  
+    <form *ngIf="demandeCongeForm" [formGroup]="demandeCongeForm" (ngSubmit)="submitForm()">
+      
+  
+      <div class="form-group">
+        <label for="typeConge">Type de Congé</label>
+      <select class="form-control" id="typeConge" formControlName="typeConge">
+        <option value="" disabled selected>Sélectionnez un type de congé</option>
+        <option value="maladie">Maladie</option>
+        <option value="repos">Repos</option>
+        <option value="accouchement">Accouchement</option>
+      </select>
+        <label for="dateDebut">Date de Début</label>
+        <input type="date" class="form-control" id="dateDebut" formControlName="dateDebut">
+        <div *ngIf="demandeCongeForm.get('dateDebut')?.hasError('required')">
+          Date de début est requise.
+        </div>
+        <div *ngIf="demandeCongeForm.get('dateDebut')?.hasError('weekendInvalid')">
+          La sélection des week-ends n'est pas autorisée.
+        </div>
+        <div class="form-group">
+      <label for="dateFin">Date de Fin</label>
+      <input type="date" class="form-control" id="dateFin" formControlName="dateFin">
+      <div *ngIf="demandeCongeForm.get('dateFin')?.hasError('required')">
+        La date de fin est requise.
+      </div>
+      <div *ngIf="demandeCongeForm.get('dateFin')?.hasError('weekendInvalid')">
+        La sélection des week-ends n'est pas autorisée.
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Envoyer la demande</button>
+    </div>
+    
+  
+      <!-- ... autres champs du formulaire ... -->
+    </form>
+  </div>
+
+  

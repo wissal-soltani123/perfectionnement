@@ -1,0 +1,31 @@
+<p>edit-profile works!</p>
+<p>bonjour</p>
+
+<div class="container mt-5">
+    <h2>Edit Profile</h2>
+  
+    <form *ngIf="editProfileForm" [formGroup]="editProfileForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="matricule">Matricule</label>
+        <input type="text" class="form-control" id="matricule" formControlName="matricule" [attr.disabled]="isMatriculeDisabled ? true : null">
+      </div>
+  
+      <div class="form-group">
+        <label for="nomEmp">Nom</label>
+        <input type="text" class="form-control" id="nomEmp" formControlName="nomEmp" >
+      </div>
+  
+      <div class="form-group">
+        <label for="pnomEmp">Prénom</label>
+        <input type="text" class="form-control" id="pnomEmp" formControlName="pnomEmp">
+      </div>
+  
+      <div class="form-group">
+        <label for="emailEmp">Email</label>
+        <input type="email" class="form-control" id="emailEmp" formControlName="emailEmp">
+      </div>
+  
+      <button type="submit" class="btn btn-primary">Mettre à jour</button>
+      <button type="button" class="btn btn-secondary" (click)="cancelEdit()">Annuler</button>
+    </form>
+  </div>

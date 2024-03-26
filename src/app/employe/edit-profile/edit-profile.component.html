@@ -1,0 +1,29 @@
+<!-- edit-profil.component.html -->
+<div class="container mt-5">
+  <h2>Edit Profil</h2>
+
+  <form [formGroup]="editProfileForm" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label for="nom" class="form-label">Nom</label>
+      <input type="text" class="form-control" id="nom" formControlName="nom">
+    </div>
+
+    <div class="mb-3">
+      <label for="pnom" class="form-label">Prénom</label>
+      <input type="text" class="form-control" id="pnom" formControlName="pnom">
+    </div>
+
+    <div class="mb-3">
+      <label for="email" class="form-label">Email</label>
+      <input type="email" class="form-control" id="email" formControlName="email">
+    </div>
+
+    <div class="mb-3">
+      <label for="gsm" class="form-label">GSM</label>
+      <input type="text" class="form-control" id="gsm" formControlName="gsm">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Update Profil</button>
+    <button type="reset" class="btn btn-secondary">Annuler</button>
+  </form>
+</div>

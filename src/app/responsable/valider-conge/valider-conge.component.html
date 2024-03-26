@@ -1,0 +1,32 @@
+<h2>Liste des demandes congé</h2>
+
+<div class="table-responsives-md">
+
+    <table class="table table-striped ">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">email</th>
+          <th scope="col">Type conge</th>
+          <th scope="col">Date debut</th>
+          <th scope="col">Date fin</th>
+          <th scope="col">Valider</th>
+          <th scope="col">Annuler</th>
+    
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let demande of demandes" >
+          <th scope="row"> {{demande.email}} </th>
+          <td>{{demande.type}}</td>
+          <td>{{demande.dateDeb}}</td>
+          <td>{{demande.dateFin}}</td>
+          <!--<td><button class="btn btn-danger" (click)="valider()" >valider</button></td>
+          <td><button class="btn btn-primary" (click)="annuler()">annuler</button></td>-->
+          
+    
+    
+        </tr>
+      </tbody>
+    </table>
+    </div>

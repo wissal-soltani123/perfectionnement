@@ -1,0 +1,141 @@
+{
+  "users": [
+    {
+      "email": "halim@topnet.tn",
+      "password": "$2a$10$2utKJqsYXRmdueVlhV5X7O81f/GodmICXTbOe5XksyHtvTlwdbiFK",
+      "matricule": 222,
+      "nom": "youssefi",
+      "pnom": "halim",
+      "gsm": 54416157,
+      "role": "admin",
+      "id": 1
+    },
+    {
+      "email": "wissal@topnet.tn",
+      "password": "$2a$10$wyfZVvE9TucDGrq0g51uyOHnFTlZzl7X9ep7ztpbUHoXwgQIJ/QI.",
+      "matricule": 100,
+      "nom": "soltani",
+      "pnom": "wissal",
+      "gsm": 54416157,
+      "role": "employe",
+      "id": 2
+    },
+    {
+      "email": "mohamed@topnet.tn",
+      "password": "$2a$10$GnpUDZNnhDu/EGUIc5H8LuC3IJRimRkPi8BYNPJjEPXpAVqZuBr.2",
+      "matricule": 101,
+      "nom": "said",
+      "pnom": "mohamed",
+      "gsm": 27222333,
+      "role": "employe",
+      "id": 3
+    },
+    {
+      "email": "salah@topnet.tn",
+      "password": "$2a$10$SX9wGtRfVV8geXes8oFM9eqSU/Rqj.VRzmo7ksR72x91IBh1aDdxi",
+      "matricule": 111,
+      "nom": "ben mabrouk",
+      "pnom": "salah",
+      "gsm": 54416157,
+      "role": "responsable",
+      "id": 4
+    },
+    {
+      "email": "bilel@topnet.tn",
+      "password": "$2a$10$oFkXWXKzF9R1xKU4gCgU1u/EDZkHfE54b6AS0a9zfdvYhU.UW8neC",
+      "matricule": 103,
+      "nom": "soltani",
+      "pnom": "bilel",
+      "slaire": 3000,
+      "gsm": 99213802,
+      "role": "employe",
+      "id": 5
+    },
+    {
+      "email": "lina@topnet.tn",
+      "password": "$2a$10$Vjrd9Qezbnl8yPPZHzw1yOADHCYnzkvxJrNc7jkhAnyty.VGdILXy",
+      "matricule": 444,
+      "nom": "mesrati",
+      "pnom": "lina",
+      "slaire": 3000,
+      "gsm": 123123123,
+      "role": "employe",
+      "id": 6
+    },
+    {
+      "matricule": "555",
+      "nom": "koko",
+      "pnom": "soltani",
+      "email": "koko@topnet.tn",
+      "password": "p555",
+      "gsm": "20000000",
+      "role": "maladie",
+      "id": 7
+    },
+    {
+      "email": "majdi@topnet.tn",
+      "password": "$2a$10$YQiVQF3qU7oFSfH6qrFrJOeGMLjnxVsQlpuZJMPBU9/VNP8dcNOIG",
+      "matricule": "666",
+      "nom": "majdi",
+      "pnom": "amri",
+      "gsm": "21212121",
+      "role": "maladie",
+      "id": 8
+    }
+  ],
+  "conge": [
+    {
+      "idConge": 1,
+      "soldeInitiale": 6,
+      "soldedispo": 4,
+      "matricule": 102,
+      "email": "wissal@topnet.tn",
+      "id": 1
+    },
+    {
+      "idConge": 2,
+      "soldeInitiale": 10,
+      "soldedispo": 4,
+      "matricule": 102,
+      "email": "halim@topnet.tn",
+      "id": 2
+    },
+    {
+      "idConge": 2,
+      "soldeInitiale": 10,
+      "soldedispo": 4,
+      "matricule": 102,
+      "email": "mohamed@topnet.tn",
+      "id": 2
+    }
+  ],
+  "demande": [
+    {
+      "idDemande": 1,
+      "dateDeb": "2024-01-01",
+      "dateFin": "2024-02-01",
+      "type": "maladie",
+      "statut": "validé",
+      "email": "wissal@topnet.tn",
+      "id": 1
+    },
+    {
+      "idDemande": 2,
+      "dateDeb": "2024-02-05",
+      "dateFin": "2024-02-09",
+      "type": "repos",
+      "statut": "encours",
+      "email": "mohamed@topnet.tn",
+      "id": 2
+    },
+    {
+      "idDemande": 2,
+      "dateDeb": "2024-02-05",
+      "dateFin": "2024-02-08",
+      "type": "exceptionnel",
+      "statut": "validé",
+      "email": "bilel@topnet.tn",
+      "id": 3
+    }
+  ]
+}

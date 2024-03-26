@@ -1,0 +1,49 @@
+<div class="container mt-5">
+    <h2>Ajouter un employé</h2>
+  
+    <form  [formGroup]="ajoutEmployeForm" (ngSubmit)="onsubmit()">
+      <div class="form-group">
+        <label for="matricule">Matricule</label>
+        <input type="text" class="form-control" id="matricule" formControlName="matricule">
+      </div>
+  
+      <div class="form-group">
+        <label for="nom">Nom</label>
+        <input type="text" class="form-control" id="nom" formControlName="nom">
+      </div>
+  
+      <div class="form-group">
+        <label for="pnom">Prénom</label>
+        <input type="text" class="form-control" id="pnom" formControlName="pnom">
+      </div>
+  
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" id="email" formControlName="email">
+      </div>
+
+      <div class="form-group">
+        <label for="email">Mot de passe </label>
+        <input type="password" class="form-control" id="password" formControlName="password">
+      </div>
+
+      <div class="form-group">
+        <label for="gsm">GSM </label>
+        <input type="text" class="form-control" id="gsm" formControlName="gsm">
+      </div>
+
+      <div class="form-group">
+        <label for="role">role</label>
+        <select class="form-control" id="role" formControlName="role">
+          <option value="" disabled selected>Sélectionnez un role</option>
+          <option value="maladie">employé</option>
+          <option value="repos">responsable</option>
+        </select>
+      </div>
+  
+      
+  
+      <button type="submit" class="btn btn-primary">Ajouter</button>
+    </form>
+  </div>
+  
