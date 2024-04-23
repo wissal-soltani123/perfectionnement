@@ -11,6 +11,7 @@ export class AdminService {
   private readonly baseUrl ='http://localhost:3000';
 
   constructor(private http: HttpClient) { }
+
   getEmployees(): Observable<Iemploye[]> {
     return this.http.get<Iemploye[]>(`${this.baseUrl}/users`);
   }

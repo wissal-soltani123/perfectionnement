@@ -19,13 +19,11 @@ export class DemandeService {
     
   }
   validerDemande(demande: Idemande): Observable<any> {
-    // Mettez à jour selon la structure de données réelle de votre application
     const  updatedDemande: Idemande = { ...demande, statut: 'validé' };
     return this.http.put<any>(`${this.baseUrl}/demande/${demande.id}`, updatedDemande);
   }
 
   annulerDemande(demande: Idemande): Observable<any> {
-    // Mettez à jour selon la structure de données réelle de votre application
     const updatedDemande: Idemande = { ...demande, statut: 'refusé' };
     return this.http.put<any>(`${this.baseUrl}/demande/${demande.id}`, updatedDemande);
   }

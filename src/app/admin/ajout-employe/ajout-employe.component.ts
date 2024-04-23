@@ -34,6 +34,7 @@ export class AjoutEmployeComponent implements OnInit {
        
     this.employeService.addEmployee(this.ajoutEmployeForm.value).subscribe(
       () => {
+        alert("User added successfully")
         this.ajoutEmployeForm.reset();
         this.router.navigate(['/adminhome']);
       },

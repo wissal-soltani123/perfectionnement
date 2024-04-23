@@ -16,7 +16,7 @@
       "matricule": 100,
       "nom": "soltani",
       "pnom": "wissal",
-      "gsm": 54416157,
+      "gsm": "54416157",
       "role": "employe",
       "id": 2
     },
@@ -81,6 +81,16 @@
       "gsm": "21212121",
       "role": "maladie",
       "id": 8
+    },
+    {
+      "email": "dalila@topnet.tn",
+      "password": "$2a$10$mvTBFTAwYAUkE30iUZbEyeTivlQ.xjqSnuiA88QNHr3H/54DJfZ2e",
+      "matricule": "888",
+      "nom": "Merji",
+      "pnom": "Dalila",
+      "gsm": "21078894",
+      "role": "maladie",
+      "id": 9
     }
   ],
   "conge": [
@@ -136,6 +146,46 @@
       "statut": "validé",
       "email": "bilel@topnet.tn",
       "id": 3
+    },
+    {
+      "id": 4,
+      "emailEmp": null,
+      "typeConge": "exceptionnel",
+      "dateDeb": "2024-04-15",
+      "dateFin": "2024-04-19",
+      "statut": "encours"
+    },
+    {
+      "id": 5,
+      "emailEmp": null,
+      "typeConge": "maladie",
+      "dateDeb": "2024-04-16",
+      "dateFin": "2024-04-17",
+      "statut": "encours"
+    },
+    {
+      "id": 6,
+      "email": null,
+      "typeConge": "repos",
+      "dateDeb": "2024-04-30",
+      "dateFin": "2024-05-01",
+      "statut": "encours"
+    },
+    {
+      "email": "wissal@topnet.tn",
+      "typeConge": "maladie",
+      "dateDeb": "2024-04-05",
+      "dateFin": "2024-05-01",
+      "statut": "encours",
+      "id": 7
+    },
+    {
+      "email": "salah@topnet.tn",
+      "typeConge": "maternel",
+      "dateDeb": "2024-04-30",
+      "dateFin": "2024-05-01",
+      "statut": "validé",
+      "id": 8
     }
   ]
 }

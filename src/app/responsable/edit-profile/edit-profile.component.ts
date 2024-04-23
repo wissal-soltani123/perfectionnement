@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { Iemploye } from 'src/models/iemploye';
 import { EmployeService } from 'src/service/employe.service';
 
 @Component({
@@ -9,56 +11,43 @@ import { EmployeService } from 'src/service/employe.service';
 })
 export class EditProfileComponent implements OnInit {
   editProfileForm!: FormGroup;
-  isMatriculeDisabled = false;
-  userData:any;
+  userData!:Iemploye;
 
-  constructor(private formBuilder: FormBuilder, private employeService: EmployeService) {}
+  constructor(private formBuilder: FormBuilder, private employeService: EmployeService ,private router:Router) {
+    this.editProfileForm = this.formBuilder.group({
+      nom: [ '', [Validators.required, Validators.pattern(/^[a-zA-Z]+$/)]],
+      pnom: [ '', [Validators.required, Validators.pattern(/^[a-zA-Z]+$/)]],
+      email: ['', [Validators.required, Validators.email]],
+      gsm: [  '', [Validators.required, Validators.pattern(/^\d{8}$/)]]
+
+ });
+  }
 
   ngOnInit() :void {
-    const id = sessionStorage.getItem('id');
-    this.getUserData(id);
+    if(sessionStorage.getItem('accessToken')&&sessionStorage.getItem('user')){
+      this.userData=JSON.parse(sessionStorage.getItem('user')!)as Iemploye;
+      this.editProfileForm.patchValue({
+        nom:this.userData.nom,
+        pnom:this.userData.pnom,
+        email:this.userData.email,
+        gsm:this.userData.gsm
+      });}
   }
-
-  getUserData(id:any) {
-    this.employeService.getUserData(id).subscribe(
-      (userData) => {
-        this.userData = userData;
-        this.initializeForm();
-      },
-      (error) => {
-        console.error('Error loading user data:', error);
-      }
-    );
-  }
-  initializeForm() {
-    
-    this.editProfileForm = this.formBuilder.group({
-      nom: [this.userData.nom, [Validators.required, Validators.pattern(/^[a-zA-Z]+$/)]],
-      pnom: [this.userData.prenom, [Validators.required, Validators.pattern(/^[a-zA-Z]+$/)]],
-      email: [this.userData.email, [Validators.required, Validators.email]],
-      gsm: [this.userData.gsm, [Validators.required, Validators.pattern(/^\d{8}$/)]]
-    });
-  }
-
   onSubmit() {
-    if (this.editProfileForm.valid) {
-      
-      this.employeService.updateUserData(this.userData.id, this.editProfileForm.value).subscribe(
-        () => {
-          console.log('User data updated successfully!');
-          
-          this.userData = { ...this.userData, ...this.editProfileForm.value };
-        },
-        (error) => {
-          console.error('Error updating user data:', error);
-        }
-      );
-    } else {
-      console.error('Invalid form submission. Please check the fields.');
-    }
-  }
-
-  cancelEdit() {
+    if(this.editProfileForm.valid){
+      this.employeService.updateUserData(this.userData.id,this.editProfileForm.value).subscribe(
+        ()=> {
+          console.log('user updated successfully!');
+          alert('User data updated successfully!');
+          sessionStorage.setItem('user',JSON.stringify(this.editProfileForm.value));
+          this.router.navigate(['/responsablehome']);
     
-  }
-}
+        },
+        (error)=> {
+          console.error('error updating user data',error);
+          alert('Error updating user data. Please try again later.');
+    
+        }
+        ); }
+    }
+  } 

@@ -15,9 +15,8 @@ export class AdminComponent implements OnInit{
 
   ngOnInit() {
     this.loadEmployees();
-  }
-
   
+  }
 
   private loadEmployees() {
     this.adminService.getEmployees().subscribe(

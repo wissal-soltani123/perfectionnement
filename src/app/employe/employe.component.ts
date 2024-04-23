@@ -11,11 +11,6 @@ export class EmployeComponent {
 
   constructor(private router: Router) { }
 
-  /*requestConge() {
-    // Redirect to the formulaire de demande de congé
-    this.router.navigate(['/demande-conge']);
-
-}*/
 ngAfterViewInit(){
     
   const ref = document.getElementById("pieChart") as HTMLCanvasElement

@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
-import { Admin } from 'mongodb';
 import { Iresponsable } from 'src/models/iresponsable';
 import { Iadmin } from 'src/models/iadmin';
 import { Iemploye } from 'src/models/iemploye';
@@ -18,11 +17,6 @@ export class DataService {
   role?:string;
   accessToken?:string;
   connected:boolean = false;
-
-
-
-
-
 
   authenticateUser(email: string, password: string): Observable<boolean|string> {
     const loginData = { email, password };
@@ -47,7 +41,7 @@ export class DataService {
   }
 
   private getOptions(): { headers: HttpHeaders } {
-    const token = localStorage.getItem('token'); // If you have a token, include it in headers
+    const token = localStorage.getItem('token'); 
     const headers = new HttpHeaders({ 'Content-Type': 'application/json', Authorization: `Bearer ${token}` });
     return { headers };
   }

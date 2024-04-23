@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Idemande } from 'src/models/idemande';
 
 import { DemandeService } from 'src/service/demande.service';
+import { ResponsableService } from 'src/service/responsable.service';
 
 @Component({
   selector: 'app-valider-conge',
@@ -10,8 +11,9 @@ import { DemandeService } from 'src/service/demande.service';
 })
 export class ValiderCongeComponent {
   demandes: Idemande[]=[];
+  filtredDemandes:Idemande[]=[];
 
-  constructor(private demandeService : DemandeService) {}
+  constructor(private responsableService : ResponsableService) {}
 
 
   ngOnInit() {
@@ -19,24 +21,32 @@ export class ValiderCongeComponent {
     
   }
 
-  valider(demande: Idemande) {
-    this.demandeService.validerDemande(demande).subscribe(() => {
-      // Mise à jour réussie, vous pouvez rafraîchir la liste des demandes ou effectuer d'autres actions nécessaires.
-      this.loadDemandes();
-    });
+   valider(demande: Idemande) :void{
+    demande.statut = 'validé';
+  this.responsableService.validerDemande(demande).subscribe(() => {
+      
+       this.loadDemandes();
+     });
   }
   
-  annuler(demande: Idemande) {
-    this.demandeService.annulerDemande(demande).subscribe(() => {
-      // Mise à jour réussie, vous pouvez rafraîchir la liste des demandes ou effectuer d'autres actions nécessaires.
-      this.loadDemandes();
+   annuler(demande: Idemande) {
+    demande.statut = 'refusé';
+     this.responsableService.annulerDemande(demande).subscribe(() => {
+     
+     this.loadDemandes();
     });
   }
 
   loadDemandes () {
-    this.demandeService.getdemande().subscribe(
-      (demandes:any) => {this.demandes = demandes},
-      (error) => console.error('Error loading employees', error)
+   this.responsableService.getDemendes().subscribe(
+      (demandes:any) => {this.demandes = demandes;
+        this.filtredDemandes = this.demandes;
+      },
+      
+    (error) => console.error('Error loading employees', error)
     );
-  }
+ }
+ filterDemandes(statut: string): void {
+  this.filtredDemandes = this.demandes.filter(demande => demande.statut === statut);
+}
 }
